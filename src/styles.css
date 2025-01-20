@@ -1,0 +1,75 @@
+/* @import url("assets/css/all.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.4.0/collection/components/icon/icon.min.css"); 
+@import url("assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css"); 
+@import url("assets/css/slick.theme.css"); 
+@import url("assets/css/slick.css"); 
+@import url("assets/css/bootstrap.css"); 
+@import url("assets/css/style.css"); 
+@import url("assets/css/skin_color.css"); 
+@import url("assets/css/custom.css");  */
+
+.main-content {
+    padding: 120px 167px;
+    height: 100%;
+    justify-content: center;
+}
+.modal-content{
+    padding: 10px 10px;
+    height: 100%;
+    justify-content: center;
+}
+.top-teams-container {
+    height: 700px;
+    background-image: url(./assets/images/bgImages/bg-1.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.bg-body{
+    height: 1024px;
+    background-image: url(./assets/images/bgImages/bg-1.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.card-box{
+    height: 548px;
+    width: 349px;
+    border: 1px solid rgba(255, 238, 4, 0.767);
+}
+
+
+.image{
+    height: 397px;
+    border: 1px solid black;
+    background-image: url(./assets/images/bgImages/Falcons.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+}
+.details {
+    height: 56px;
+    width: 173px;
+    border: 1px solid rgba(255, 238, 4, 0.77);
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-black{
+    background-color: black;
+}
+.top-headings {
+    padding: 37px 0;
+}
+.top-headings h2 {
+    font-size: 45px;
+    color: goldenrod;
+}
+
+mat-dialog-content.mat-mdc-dialog-content.mdc-dialog__content {
+    background-color: rgba(0, 0, 0, 0.392);
+}

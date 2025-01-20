@@ -1,0 +1,13 @@
+table.table.table-bordered tr th {
+    background: rgb(174 135 22 / 77%);
+    color: white;
+    border-color: rgb(174, 135, 22);
+    font-size: medium;
+}
+
+table.table.table-bordered tr td,table.table.table-bordered tr {
+    /* background: rgb(174 135 22 / 77%); */
+    color: white;
+    border-color: rgb(174, 135, 22);
+    font-size: medium;
+}
