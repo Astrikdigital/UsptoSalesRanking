@@ -42,7 +42,9 @@ export class SalesSummaryComponent {
 
     this.rankingService.onAddSaleAgent((data) => {
       this.rankings = data.list;
-      this.celebrate();
+      setInterval(() => {
+        this.celebrate();
+      }, 2000);
       this.getTopTeams();
       this.OpenModal(data, 0);
     });
@@ -89,18 +91,24 @@ export class SalesSummaryComponent {
       height: '600px',
       width: '1000px',
     })
-    // setTimeout(() => {
-    //   this.dialog.closeAll();
-    // }, 5000);
+    setTimeout(() => {
+      this.dialog.closeAll();
+    }, 20000);
   }
 
   celebrate() {
-    const duration = 3000; // in milliseconds
+    const duration = 20000; // in milliseconds
+    var scalar = 2;
+    var pineapple = confetti.shapeFromText({ text: '🎈', scalar });
 
     confetti({
-      particleCount: 150,
-      spread: 180,
-      origin: { y: 0.6 },
+      particleCount: 500,
+      spread: 500,
+      origin: {
+        x: Math.random(),
+        // since they fall down, start a bit higher than random
+        y: Math.random() - 0.2
+      },
       colors: ['#FF4500', '#008080', '#FFD700'],
     });
     // Clear confetti after a certain duration
