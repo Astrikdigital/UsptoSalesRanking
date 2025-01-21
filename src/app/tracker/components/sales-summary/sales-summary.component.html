@@ -2,7 +2,7 @@
 
   <!-- <button (click)="celebrate()">Celebrate!</button> -->
 
-  <ngb-carousel [interval]="5000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+  <ngb-carousel [interval]="4000" [showNavigationArrows]="false" [showNavigationIndicators]="false" [wrap]="true">
     <ng-template ngbSlide>
       <div class="top-headings">
         <div class="row">
@@ -72,7 +72,7 @@
           <ng-container *ngFor="let item of teamsData let i=index">
             <div class="card-box">
               <div class="image">
-
+                <img src="../../../../assets/images/bgImages/{{item.TeamLogo}}" alt="" />
               </div>
               <div class="row" style="background-color: rgb(174, 135, 22);">
                 <div class="col-md-12 text-center text-white">
@@ -129,7 +129,7 @@
           <ng-container>
             <div class="card-box">
               <div class="image">
-
+                <img src="../../../../assets/images/bgImages/{{ agentOfDay.TeamLogo != null ? agentOfDay.TeamLogo : 'Falcons.png'}}" alt="">
               </div>
               <div class="row" style="background-color: rgb(174, 135, 22);">
                 <div class="col-md-12 text-center text-white">

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environtment';
 
 
 @Injectable({
@@ -9,15 +10,16 @@ import { Observable } from 'rxjs';
 })
 export class RankingService {
   hubConnection: signalR.HubConnection;
+  apiUrl = environment.apiUrl;
 
   constructor() {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:7071/rankingHub')
+      .withUrl(`${this.apiUrl.replace("api/","")}rankingHub`)
       .build();
   }
   startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl(`https://localhost:7071/rankingHub`, {
+      .withUrl(`${this.apiUrl.replace("api/","")}rankingHub`, {
         skipNegotiation: true,
         transport: signalR.HttpTransportType.WebSockets
       }).withAutomaticReconnect([0, 2000, 10000])

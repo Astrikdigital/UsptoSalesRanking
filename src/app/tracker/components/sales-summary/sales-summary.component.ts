@@ -34,7 +34,17 @@ export class SalesSummaryComponent {
     config.showNavigationIndicators = true;
   }
 
+  ngOnDestroy(){
+    const element = document.getElementById('bodyid');
+    if (element) {
+      element.classList.remove('bg-body');
+    }
+  }
   ngOnInit() {
+    const element = document.getElementById('bodyid');
+    if (element) {
+      element.classList.add('bg-body');
+    }
     this.rankingService.startConnection();
     this.getAgentoftheDay();
     this.getTopTeams();
@@ -46,12 +56,14 @@ export class SalesSummaryComponent {
         this.celebrate();
       }, 2000);
       this.getTopTeams();
+      this.getAgentoftheDay();
       this.OpenModal(data, 0);
     });
 
     this.rankingService.onRefundSale((data) => {
       this.rankings = data.list;
       this.getTopTeams();
+      this.getAgentoftheDay();
       this.OpenModal(data, 1);
     });
 
