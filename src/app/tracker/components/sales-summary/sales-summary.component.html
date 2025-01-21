@@ -1,7 +1,7 @@
 <div class="content">
 
 
-  <ngb-carousel [interval]="5000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+  <ngb-carousel [interval]="3500" [showNavigationArrows]="false" [showNavigationIndicators]="false">
     
     <ng-template ngbSlide>
       <div class="top-headings">
@@ -19,6 +19,7 @@
       <div class="main-content">
         <div class="row">
           <div class="col-md-12 ">
+            <div class="table-set-height">
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -48,9 +49,10 @@
               </tbody>
             </table>
           </div>
+          </div>
         </div>
       </div>
-    </ng-template>
+    </ng-template>  
 
     <ng-template ngbSlide>
       <div class="top-headings">
@@ -109,7 +111,7 @@
       </div>
     </ng-template>
 
-    <ng-template *ngIf="agentOfDay" ngbSlide>
+  <ng-template *ngIf="agentOfDay" ngbSlide>
       <div class="top-headings">
         <div class="row">
           <div class="col-md-12 text-center text-white">
@@ -164,7 +166,7 @@
 
         </div>
       </div>
-    </ng-template>
+    </ng-template>  
 
   </ngb-carousel>
 </div>

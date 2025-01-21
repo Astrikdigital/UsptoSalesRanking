@@ -15,14 +15,5 @@ table.table.table-bordered tr td,table.table.table-bordered tr {
 
 .content{
     /* height: 1024px; */
-    background-image: url(../../../../assets/images/bgImages/bg-1.jpg);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-
-
-        margin: 0;   
-      background-size: cover; 
-      background-repeat: no-repeat;  
-      background-position: center;
+   
 }

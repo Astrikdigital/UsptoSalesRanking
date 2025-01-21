@@ -7,9 +7,12 @@
 @import url("assets/css/style.css"); 
 @import url("assets/css/skin_color.css"); 
 @import url("assets/css/custom.css");  */
-
+.table-set-height {
+    max-height: 78%;
+    overflow-y: auto;
+}
 .main-content {
-    padding: 120px 167px;
+    padding: 115px 167px;
     height: 100%;
     justify-content: center;
 }
@@ -25,13 +28,15 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-/* .bg-body{
-    height: 1024px;
+.bg-body{
     background-image: url(./assets/images/bgImages/bg-1.jpg);
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-} */
+    background-size: 100% 100%; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
 .card-box{
     height: 548px;
@@ -91,3 +96,24 @@
 .refundSale{
     background-color: white
 }
+/* width */
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(82, 82, 82); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(82, 82, 82); 
+  } 
