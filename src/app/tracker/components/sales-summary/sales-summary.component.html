@@ -3,7 +3,111 @@
 
   <ngb-carousel [interval]="5000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
     
- 
+    <ng-template ngbSlide>
+      <div class="top-headings">
+        <div class="row">
+          <div class="col-md-12 text-center text-white">
+            <h2 class="text-center">
+              TOP PERFORMERSE
+            </h2>
+            <p>
+              {{currentDate | date : "EEEE, MMMM dd, yyyy"}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="row">
+          <div class="col-md-12 ">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 5%;">Rank</th>
+                  <th>Name</th>
+                  <th style="width: 10%;">Team Name</th>
+                  <th style="width: 10%;">Bench</th>
+                  <th style="width: 10%;">Achieved</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let rank of rankings">
+                  <td class="text-center"
+                    [style.background-color]="rank.Rank == 1 ? '#cbb54c' : rank.Rank == 2 ? '#97a3adde' : rank.Rank == 3 ? '#dd8888' : 'transparent'">
+                    {{ rank.Rank }}
+                  </td>
+                  <td>{{ rank.Name }}</td>
+                  <td class="text-center">{{ rank.TeamName }}</td>
+                  <td class="text-center">
+                    {{rank.Bench | number}}
+                  </td>
+                  <td class="text-center">
+                    {{rank.Achive | number}}
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="top-headings">
+        <div class="row">
+          <div class="col-md-12 text-center text-white">
+            <h2 class="text-center">
+              TOP TEAMS
+            </h2>
+            <p>
+              {{currentDate | date : "EEEE, MMMM dd, yyyy"}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="d-flex justify-content-evenly row p-3">
+          <ng-container *ngFor="let item of teamsData let i=index">
+            <div class="card-box">
+              <div class="image">
+
+              </div>
+              <div class="row" style="background-color: rgb(174, 135, 22);">
+                <div class="col-md-12 text-center text-white">
+                  <h4>
+                    {{item.TeamName}}
+                  </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="details text-center">
+                  <h5 class="text-danger">
+                    Bench
+                  </h5>
+                </div>
+                <div class="details text-center">
+                  <h5 class="text-danger">
+                    {{item.TotalBench | number}}
+                  </h5>
+                </div>
+                <div class="details text-center">
+                  <h5 class="text-warning">
+                    Achieved
+                  </h5>
+                </div>
+                <div class="details text-center">
+                  <h5 class="text-warning">
+                    {{item.TotalAchieve | number}}
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+
+        </div>
+      </div>
+    </ng-template>
 
     <ng-template *ngIf="agentOfDay" ngbSlide>
       <div class="top-headings">
