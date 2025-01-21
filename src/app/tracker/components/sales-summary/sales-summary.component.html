@@ -1,0 +1,66 @@
+<div class="content">
+
+
+  <ngb-carousel [interval]="5000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+    
+ 
+
+    <ng-template *ngIf="agentOfDay" ngbSlide>
+      <div class="top-headings">
+        <div class="row">
+          <div class="col-md-12 text-center text-white">
+            <h2 class="text-center">
+              AGENT OF THE DAY
+            </h2>
+            <p>
+              {{currentDate | date : "EEEE, MMMM dd, yyyy"}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="d-flex justify-content-evenly row p-3">
+          <ng-container>
+            <div class="card-box">
+              <div class="image">
+
+              </div>
+              <div class="row" style="background-color: rgb(174, 135, 22);">
+                <div class="col-md-12 text-center text-white">
+                  <h4>
+                    {{agentOfDay.AgentName}}
+                  </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="details text-center">
+                  <h5 class="text-danger">
+                    Bench
+                  </h5>
+                </div>
+                <div class="details text-center">
+                  <h5 class="text-danger">
+                    {{agentOfDay.Bench | number}}
+                  </h5>
+                </div>
+                <div class="details text-center">
+                  <h5 class="text-warning">
+                    Achieved
+                  </h5>
+                </div>
+                <div class="details text-center">
+                  <h5 class="text-warning">
+                    {{agentOfDay.Achive | number}}
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+
+        </div>
+      </div>
+    </ng-template>
+
+  </ngb-carousel>
+</div>

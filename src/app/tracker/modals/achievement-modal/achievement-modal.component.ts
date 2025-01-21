@@ -22,6 +22,7 @@ export class AchievementModalComponent  {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<AchievementModalComponent>) {
     this.selectedData = data;
     console.log(this.selectedData,"yahan hun mai ");
+    console.log(this.selectedData.isRefund,"IsRefund bit");
     
   }
  

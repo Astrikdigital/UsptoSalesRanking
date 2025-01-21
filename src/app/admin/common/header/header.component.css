@@ -1,0 +1,30 @@
+a {
+    text-decoration: none;
+    color: #000;
+  }
+  .site-header { 
+    border-bottom: 1px solid #ccc;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #003d68;
+  }
+  
+  .site-identity h1 {
+    font-size: 1.5em;
+    margin: .3em 0;
+    display: inline-block;
+    color: #fffefe;
+  }
+  
+  
+  .site-navigation ul, 
+  .site-navigation li {
+    margin: 0; 
+    padding: 0;
+  }
+  
+  .site-navigation li {
+    display: inline-block;
+    margin: 1.4em 1em 1em 1em;
+  }

@@ -11,8 +11,6 @@ export class RankingService {
   hubConnection: signalR.HubConnection;
 
   constructor() {
-
-
     this.hubConnection = new signalR.HubConnectionBuilder()
       .withUrl('https://localhost:7071/rankingHub')
       .build();
@@ -42,7 +40,12 @@ export class RankingService {
 
   onRankingUpdate(callback: (data: any) => void) {
     console.log("Player Rank Update");
-    this.hubConnection.on('ReceiveRankingUpdate', callback);
+    this.hubConnection.on('InsertAgentSales', callback);
+  }
+
+  onRefundSale(callback: (data: any) => void) {
+    console.log("Refund Sale Update");
+    this.hubConnection.on('RefundAgentSales', callback);
   }
 
   onTeamRankingUpdate(callback: (data: any) => void) {

@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Refund Sale</h2>
+<mat-dialog-content>
+  Would you like to do this?
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-danger m-1" (click)="close()">Cancle</button>
+  <button class="btn btn-primary m-1" mat-button mat-dialog-close cdkFocusInitial (click)="refundSale()">Ok</button>
+</mat-dialog-actions>

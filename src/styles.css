@@ -25,13 +25,13 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-.bg-body{
+/* .bg-body{
     height: 1024px;
     background-image: url(./assets/images/bgImages/bg-1.jpg);
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-}
+} */
 
 .card-box{
     height: 548px;
@@ -44,6 +44,16 @@
     height: 397px;
     border: 1px solid black;
     background-image: url(./assets/images/bgImages/Falcons.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+}
+
+.refund-image{
+    height: 338px;
+    border: 1px solid black;
+    background-image: url(./assets/images/bgImages/refund-2.gif);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -70,6 +80,14 @@
     color: goldenrod;
 }
 
-mat-dialog-content.mat-mdc-dialog-content.mdc-dialog__content {
-    background-color: rgba(0, 0, 0, 0.392);
+.insert-refund .mat-mdc-dialog-content.mdc-dialog__content,
+.insert-refund  .mat-mdc-dialog-surface.mdc-dialog__surface {
+    background-color: rgb(39, 39, 39);
+}
+.agentsale {
+    max-width: var(--mat-dialog-container-max-width, 860px) !important; 
+}
+
+.refundSale{
+    background-color: white
 }

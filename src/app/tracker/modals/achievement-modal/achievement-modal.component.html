@@ -1,0 +1,92 @@
+<!-- <h2 mat-dialog-title>{{selectedData.position}}</h2> -->
+<mat-dialog-content>
+
+
+  <div class="modal-content bg-black">
+    <ng-container *ngIf="this.selectedData.isRefund == 0">
+      <div class="d-flex justify-content-evenly row p-3">
+        <div class="card-box">
+          <div class="image">
+
+          </div>
+          <div class="row" style="background-color: rgb(174, 135, 22);">
+            <div class="col-md-12 text-center text-white">
+              <h4>
+                {{selectedData?.data?.agentName}}
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="details text-center">
+              <h5 class="text-danger">
+                Bench
+              </h5>
+            </div>
+            <div class="details text-center">
+              <h5 class="text-danger">
+                {{selectedData?.data?.bench}}
+              </h5>
+            </div>
+            <div class="details text-center">
+              <h5 class="text-warning">
+                Achieved
+              </h5>
+            </div>
+            <div class="details text-center">
+              <h5 class="text-warning">
+                {{selectedData?.data?.achivedSale}}
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.selectedData.isRefund == 1">
+      <div class="d-flex justify-content-evenly row p-3">
+        <div class="card-box">
+          <div class="refund-image">
+
+          </div>
+          <div class="row" style="background-color: rgb(174, 135, 22);">
+            <div class="col-md-12 text-center text-white">
+              <h4>
+                {{selectedData?.data?.agentName}}
+              </h4>
+            </div>
+          </div>
+        <br>
+          <div class="row" style="background-color: rgb(174, 135, 22);">
+            <div class="col-md-12 text-center text-white">
+              <h4>
+                {{selectedData?.data?.teamName}}
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="details text-center">
+              <h5 class="text-danger">
+                Bench
+              </h5>
+            </div>
+            <div class="details text-center">
+              <h5 class="text-danger">
+                {{selectedData?.data?.bench}}
+              </h5>
+            </div>
+            <div class="details text-center">
+              <h5 class="text-warning">
+                Refund
+              </h5>
+            </div>
+            <div class="details text-center">
+              <h5 class="text-warning">
+                {{selectedData?.data?.refundSale}}
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</mat-dialog-content>

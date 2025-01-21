@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RankingService } from './components/ranking/services/rankingService';
+import { RankingService } from './shared/services/rankingService';
 
 @Component({
   selector: 'app-root',

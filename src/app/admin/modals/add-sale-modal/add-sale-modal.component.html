@@ -1,0 +1,49 @@
+<!-- <h2 mat-dialog-title>{{selectedData.position}}</h2> -->
+<h2 mat-dialog-title>Add Sale</h2>
+<mat-dialog-content>
+  <form>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="Agent">Agent</label>
+          <select name="agent"  class="form-control" [(ngModel)]="saleModel.agentId" [ngModelOptions]="{standalone: true}">
+            <option value="">Select Agent</option>
+            <option [ngValue]="a.id" *ngFor="let a of agents">{{a.fullName}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="Agent">Amount</label>
+          <input type="number" name="" id="" class="form-control" [(ngModel)]="saleModel.amount" [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <label for="month">Month</label>
+            <select name="month"  class="form-control" [(ngModel)]="saleModel.month" [ngModelOptions]="{standalone: true}">
+              <option value="">Select Month</option>
+              <option *ngFor="let item of months" value="{{item | date: 'MMMM' }}">{{item | date: 'MMMM' }}</option>
+            </select>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="month">Date</label>
+            <input type="date" name="" id="" class="form-control" [(ngModel)]="saleModel.date" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="btn btn-danger m-1" (click)="close()">Cancle</button>
+  <button class="btn btn-primary m-1" (click)="addSaleAgent()">
+    <span>
+     Save
+   </span>
+  </button>
+
+</mat-dialog-actions>
+   
+  
