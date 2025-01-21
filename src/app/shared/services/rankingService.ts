@@ -38,7 +38,7 @@ export class RankingService {
 
   }
 
-  onRankingUpdate(callback: (data: any) => void) {
+  onAddSaleAgent(callback: (data: any) => void) {
     console.log("Player Rank Update");
     this.hubConnection.on('InsertAgentSales', callback);
   }
