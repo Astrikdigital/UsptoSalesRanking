@@ -61,6 +61,12 @@ export class SalesSummaryComponent {
       this.OpenModal(data, 0);
     });
 
+    this.rankingService.onTeamStructure((data) => {
+      this.getTopTeams();
+      this.getAgentoftheDay();
+      this.getPerformers();
+    });
+
     this.rankingService.onRefundSale((data) => {
       this.upSells = data.list.upSell;
       this.frontSells = data.list.frontSell;

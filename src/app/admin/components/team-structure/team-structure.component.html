@@ -1,0 +1,53 @@
+<div class="row my-5">
+    <div class="row p-3">
+      <div class="col-md-8">
+        <h4>
+          Team Structure
+        </h4>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-add" (click)="addTeamAgent()"> 
+          + Add Team Agent
+        </button>
+      </div>
+    </div>
+      <div class="col-md-12 table-content">
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 2%;" scope="col">S#</th>
+                  <th scope="col">Agent</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Month</th>
+                  <th scope="col">Bench</th>
+                  <th scope="col">Achieve</th>
+                  <th scope="col">Team</th>
+                  <th scope="col">Created Date</th>
+                  <th style="width: 8%;" scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of data let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{item?.Agent}}</td>
+                  <td>{{item?.Role}}</td>
+                  <td>{{item?.Month}}</td>
+                  <td>{{item?.Bench | number}}</td>
+                  <td>{{item?.Achive | number}}</td>
+                  <td>{{item?.TeamName}}</td>
+                  <td>{{item?.CreatedAt | date}}</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="editTeamStructure(item)" >
+                      Edit
+                    </button>
+
+                    <button class="btn btn-danger mx-1" (click)="deleteTeamAgent(item.Id)" >
+                      Delete 
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  </div>
+  

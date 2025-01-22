@@ -23,6 +23,15 @@ export class HttpApiService {
     async getAgents(){
         return await this.httpService.getAsync<any>('Agent/GetAgent');
     }
+    async getClosing(){
+        return await this.httpService.getAsync<any>('Agent/GetClosing');
+    }
+    async getTeam(){
+        return await this.httpService.getAsync<any>('Agent/GetTeam');
+    }
+    async getMonths(){
+        return await this.httpService.getAsync<any>('Agent/GetMonths');
+    }
     async addSale(body: any): Promise<any> {
         return await this.httpService.post<any>('Agent/InsertAgentSales', body)
     }
@@ -31,5 +40,20 @@ export class HttpApiService {
     }
     async getAgentoftheDay(){
         return await this.httpService.getAsync<any>('Agent/GetAgentOfTheDay');
+    }
+
+    async getTeamStructure(){
+        return await this.httpService.getAsync<any>('Agent/GetTeamStructure');
+    }
+
+    async addTeamStructure(body: any): Promise<any> {
+        return await this.httpService.post<any>('Agent/CreateTeamStructure', body)
+    }
+    async updateteamStructure(body: any): Promise<any> {
+        return await this.httpService.post<any>('Agent/UpdateTeamStructure', body)
+    }
+
+    async deleteTeamStructure(body: any): Promise<any> {
+        return await this.httpService.post<any>('Agent/DeleteTeamStructure', body)
     }
 }

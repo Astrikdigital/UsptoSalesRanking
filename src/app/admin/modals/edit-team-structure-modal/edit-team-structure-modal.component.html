@@ -1,0 +1,69 @@
+<!-- <h2 mat-dialog-title>{{selectedData.position}}</h2> -->
+<h2 mat-dialog-title>Edit Team Structure</h2>
+<mat-dialog-content>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="Agent">Agent</label>
+                        <select name="agent" class="form-control" [(ngModel)]="teamAgentModel.agentId"
+                            [ngModelOptions]="{standalone: true}">
+                            <option value="">Select Agent</option>
+                            <option [ngValue]="a.id" *ngFor="let a of agents">{{a.fullName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="month">Month</label>
+                        <select name="month" class="form-control" [(ngModel)]="teamAgentModel.month"
+                            [ngModelOptions]="{standalone: true}">
+                            <option value="0">Select Month</option>
+                            <option *ngFor="let item of months" [ngValue]="item.Id">{{item.Title}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <label for="Agent">Bench</label>
+                        <input type="number" name="" id="" class="form-control" [(ngModel)]="teamAgentModel.bench"
+                            [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Agent">Achieve</label>
+                        <input type="number" name="" id="" class="form-control" [(ngModel)]="teamAgentModel.achive"
+                            [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <label for="Agent">Team</label>
+                        <select name="month" class="form-control" [(ngModel)]="teamAgentModel.teamId"
+                            [ngModelOptions]="{standalone: true}">
+                            <option ngValue="">Select team</option>
+                            <option *ngFor="let item of teams" [ngValue]="item.Id">{{item?.Cordinator}} - {{(item.Name)}}
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="Agent">Closing</label>
+                       <select name="month" class="form-control" [(ngModel)]="teamAgentModel.closingId"
+                            [ngModelOptions]="{standalone: true}">
+                            <option ngValue="">Select Closing</option>
+                            <option *ngFor="let item of closing" [ngValue]="item.Id">{{item.Month}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-danger m-1" (click)="close()">Cancle</button>
+    <button class="btn btn-primary m-1" (click)="addTeamAgent()">
+        <span>
+            Save
+        </span>
+    </button>
+
+</mat-dialog-actions>
