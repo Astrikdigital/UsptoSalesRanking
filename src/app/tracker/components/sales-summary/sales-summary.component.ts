@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from '../../../shared/services/http.service';
@@ -11,17 +11,17 @@ import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-sales-summary',
-  imports: [CommonModule, NgbCarouselModule],
+  imports: [CommonModule, NgbCarouselModule,NgIf,NgFor],
   templateUrl: './sales-summary.component.html',
   styleUrl: './sales-summary.component.css'
 })
 export class SalesSummaryComponent {
-
-  rankings: any = [];
+ 
   teamsData: any = [];
   agentOfDay: any;
   currentDate: any = new Date();
-
+  upSells:any = [];
+  frontSells:any = [];
 
   constructor(
     private rankingService: RankingService,
@@ -51,7 +51,8 @@ export class SalesSummaryComponent {
     this.getPerformers();
 
     this.rankingService.onAddSaleAgent((data) => {
-      this.rankings = data.list;
+      this.upSells = data.list.upSell;
+      this.frontSells = data.list.frontSell;
       setInterval(() => {
         this.celebrate();
       }, 2000);
@@ -61,7 +62,8 @@ export class SalesSummaryComponent {
     });
 
     this.rankingService.onRefundSale((data) => {
-      this.rankings = data.list;
+      this.upSells = data.list.upSell;
+      this.frontSells = data.list.frontSell;
       this.getTopTeams();
       this.getAgentoftheDay();
       this.OpenModal(data, 1);
@@ -82,20 +84,17 @@ export class SalesSummaryComponent {
 
   async getPerformers() {
     let res: any = await this.httpService.getPerformers();
-    this.rankings = res
+    this.upSells = res.upSell;
+    this.frontSells = res.frontSell;
     // this.rankings.sort((a:any, b:any) => a.Rank - b.Rank)
   }
 
   async getAgentoftheDay() {
     let res: any = await this.httpService.getAgentoftheDay();
-    this.agentOfDay = res[0]
-    console.log(this.agentOfDay, 'agent of the day');
-
-    // this.rankings.sort((a:any, b:any) => a.Rank - b.Rank)
+    this.agentOfDay = res[0];
   }
 
-  OpenModal(data: any, isRefund: number) {
-    debugger
+  OpenModal(data: any, isRefund: number) { 
     data.isRefund = isRefund
     this.dialog.open(AchievementModalComponent, {
       data: data,

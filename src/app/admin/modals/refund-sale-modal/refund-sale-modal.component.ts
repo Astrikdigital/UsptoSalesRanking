@@ -32,11 +32,10 @@ export class RefundSaleModalComponent {
       date: this.refundAgent.saleDate,
       month: this.refundAgent.month,
       statusId: this.refundAgent.statusId
-    }
-    console.log(refundModel, 'refundModel');
+    } 
     let res: any = await this.httpService.refundSale(refundModel);
-    if (res.length > 0) {
-      this.dialogRef.close({ IsSuccess: true });
+    if (res) { 
+      this.dialogRef.close({IsSuccess:true});
     }
     return;
   }
