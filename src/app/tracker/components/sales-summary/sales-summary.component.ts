@@ -151,8 +151,8 @@ export class SalesSummaryComponent {
     this.dialog.open(AchievementModalComponent, {
       data: data,
       panelClass: 'insert-refund',
-      height: '600px',
-      width: '1000px',
+      //height: '700px',
+      //width: '1000px',
     })
     setTimeout(() => {
       this.dialog.closeAll();
@@ -160,7 +160,7 @@ export class SalesSummaryComponent {
   }
 
   celebrate() {
-    const duration = 20000; // in milliseconds
+    const duration = 18000; // in milliseconds
     var scalar = 2;
     var pineapple = confetti.shapeFromText({ text: '🎈', scalar });
 

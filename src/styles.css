@@ -12,7 +12,7 @@
     overflow-y: auto;
 }
 .main-content {
-    margin: 15px 120px 95px 120px;
+    margin: 50px 120px 95px 120px;
     height: 100%;
     /* background: black; */
     justify-content: center;
@@ -77,7 +77,7 @@ body.bg-body {
     overflow: hidden;
     position: relative;
 }
-.bg-body:after {
+/* .bg-body:after {
     position: absolute;
     left: 0;
     right: 0;
@@ -85,7 +85,7 @@ body.bg-body {
     width: 100%;
     content: '';
     background-color: #000;
-}
+} */
 
 
 .card-box{
@@ -101,10 +101,10 @@ body.bg-body {
     
 
 .card-box h4 {
-    font-size: 45px;
+    font-size: 50px;
 }
 .card-box h5 {
-    font-size: 35px;
+    font-size: 45px;
     padding: 10px;
 }
 
@@ -129,12 +129,12 @@ body.bg-body {
 }
 .image .smBadge  {
     position: absolute;
-    left: -44px;
-    top: -30px;
+    left: -64px;
+    top: -60px;
     width: 100px;
 }
 .image .smBadge img {
-    max-width: 100px;
+    max-width: 200px;
 }
 
 .refund-image{
@@ -147,7 +147,7 @@ body.bg-body {
     background-color: transparent !important;
 }
 .details {
-    height: 72px !important;
+    height: 85px !important;
     width: 50% !important;
     border: 1px solid rgba(255, 238, 4, 0.77) !important;
     display: flex !important
@@ -163,18 +163,55 @@ body.bg-body {
     padding: 45px 0 20px 0 !important;
 }
 .top-headings h2 {
-    font-size: 80px !important;
+    font-size: 100px !important;
     color: goldenrod !important;
     font-weight: 700;;
 }
 .top-headings p {
-    font-size: 35px;
+    font-size: 50px;
     margin: 0;
 }
+
+.mat-mdc-dialog-content {
+    max-height: 74vh !important;
+}
+.modal-content.bg-black {
+    height: 100%;
+}
+.modal-content.bg-black {
+    height: 100%;
+}
+.modal-content.bg-black .card-box .image {
+    height: 445px !important;
+}
+.modal-content.bg-black .card-box .refund-image {
+    height: 410px !important;
+}
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+    background-color: #000000a6;
+}
+/* 
+.cdk-overlay-pane.insert-refund.mat-mdc-dialog-panel {
+    height: 700px !important;
+} */
 
 .insert-refund .mat-mdc-dialog-content.mdc-dialog__content,
 .insert-refund  .mat-mdc-dialog-surface.mdc-dialog__surface {
     background-color: rgb(39, 39, 39) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.insert-refund .mat-mdc-dialog-content.mdc-dialog__content h4, .insert-refund .mat-mdc-dialog-surface.mdc-dialog__surface h4 {
+    font-size: 35px;
+}
+.insert-refund .mat-mdc-dialog-content.mdc-dialog__content h5, .insert-refund .mat-mdc-dialog-surface.mdc-dialog__surface h5 {
+    font-size: 35px;
+}
+.modal-content.bg-black .card-box {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 .agentsale {
     max-width: var(--mat-dialog-container-max-width, 860px) !important; 
@@ -241,6 +278,11 @@ table.table.table-bordered[_ngcontent-ng-c662830049] tr[_ngcontent-ng-c662830049
 .Inner_content_sec {
     height: 100%;
 }
+
+canvas {
+    z-index: 50000 !important;
+}
+
 @media (max-width: 1920px) {
     .image {
         height: 380px !important;
