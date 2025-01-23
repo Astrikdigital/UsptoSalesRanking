@@ -1,0 +1,35 @@
+<div class="row my-5">
+    <div class="row p-3">
+      <div class="col-md-8">
+        <h4>
+          Agents Sales
+        </h4>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-add-sale" (click)="addSale()"> 
+          + Add Agent Sale
+        </button>
+      </div>
+    </div>
+      <div class="col-md-12 table-content">
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 2%;" scope="col">S#</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Logo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="{{item.statusId == 2 ? 'refund': ''}}" *ngFor="let item of data let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{item?.id}}</td>
+                  <td>{{item?.name}}</td>
+                  <td>{{item?.logo}}</td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  </div>
+  

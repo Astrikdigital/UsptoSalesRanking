@@ -45,6 +45,14 @@ export class HttpApiService {
     async getAgentoftheDay(){
         return await this.httpService.getAsync<any>('Agent/GetAgentOfTheDay');
     }
+
+    async getSaleclosing(){
+        return await this.httpService.getAsync<any>('Agent/GetClosing');
+    }
+
+    async getTeam(){
+        return await this.httpService.getAsync<any>('Agent/GetTeam');
+    }
     
     
 }

@@ -12,10 +12,9 @@ export const routes: Routes = [
                 loadComponent: () => import('./tracker/components/sales-summary/sales-summary.component').then(m => m.SalesSummaryComponent),   
             },  
             
-        ]
-
-        
+        ]      
     },
+    
     {
         path: 'admin',
         loadComponent: () => import('./admin/admin.component').then(m => m.AdminComponent),
@@ -32,6 +31,11 @@ export const routes: Routes = [
             {
                 path: 'sale-closing',
                 loadComponent: () => import('./admin/components/sale-closing/sale-closing.component').then(m => m.SaleClosingComponent),   
+            },
+
+            {
+                path: 'Team',
+                loadComponent: () => import('./admin/components/team/team.component').then(m => m.TeamComponent),   
             },
         ]
     }

@@ -31,21 +31,20 @@ export class AddSaleModalComponent {
   close() {
     this.dialogRef.close();
   }
-
-
- async getAgents(){
+  
+  async getAgents(){
     let res: any = await this.httpService.getAgents();
     this.agents = res
     console.log(this.agents);
   }
 
-
+  
  
   generateMonths(startDate: Date, numberOfMonths: number): void {
     const monthsArray: Date[] = [];
     for (let i = 0; i < numberOfMonths; i++) {
       const newDate = new Date(startDate);
-      newDate.setMonth(startDate.getMonth() + i);  
+      newDate.setMonth(startDate.getMonth() + i);
       monthsArray.push(newDate);
     } 
     this.months = monthsArray;

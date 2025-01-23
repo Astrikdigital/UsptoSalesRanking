@@ -16,16 +16,16 @@
           <label for="Agent">Amount</label>
           <input type="number" name="" id="" class="form-control" [(ngModel)]="saleModel.amount" [ngModelOptions]="{standalone: true}">
         </div>
-
+      
         <div class="row mt-4">
           <div class="col-md-6">
             <label for="month">Month</label>
             <select name="month"  class="form-control" [(ngModel)]="saleModel.month" [ngModelOptions]="{standalone: true}">
               <option value="">Select Month</option>
-              <option *ngFor="let item of months" value="{{item | date: 'MMMM' }}">{{item | date: 'MMMM' }}</option>
+              <option *ngFor="let item of months" value="{{item | date: 'MMMM' }}">{{item | date: 'MMMM'}}</option>
             </select>
           </div>
-  
+         
           <div class="col-md-6">
             <label for="month">Date</label>
             <input type="date" name="" id="" class="form-control" [(ngModel)]="saleModel.date" [ngModelOptions]="{standalone: true}">
