@@ -38,8 +38,7 @@ export class AgentSalesComponent {
       height:'300px'
     })
 
-    modal.afterClosed().subscribe(async (result) => {
-      debugger;
+    modal.afterClosed().subscribe(async (result) => { 
       if (result.IsSuccess) {
         this.getsaleAgent();
       }
@@ -51,9 +50,8 @@ export class AgentSalesComponent {
       data:row,
       width:'860px',
       height:'200px'
-    })
-
-    modal.afterClosed().subscribe(async (result) => {
+    });
+    modal.afterClosed().subscribe(async (result) => { 
       if (result.IsSuccess) {
         this.getsaleAgent();
       }

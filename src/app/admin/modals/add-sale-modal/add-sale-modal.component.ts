@@ -50,8 +50,7 @@ export class AddSaleModalComponent {
     this.months = monthsArray;
   } 
 
-  async addSaleAgent(){
-    debugger
+  async addSaleAgent(){ 
     console.log(this.saleModel);
     let res: any = await this.httpService.addSale(this.saleModel);
     if (res) {

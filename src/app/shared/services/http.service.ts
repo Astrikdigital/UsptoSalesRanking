@@ -46,8 +46,7 @@ export class HttpService {
     return throwError(() => error);
   }
 
-  // get<T>(endpoint: string, queryParams?: any): Observable<T> {
-  //   debugger;
+  // get<T>(endpoint: string, queryParams?: any): Observable<T> { 
   //   return this.http.get<T>(`${this.baseUrl}/${endpoint}`); 
   // } 
 
@@ -57,8 +56,7 @@ export class HttpService {
   }
 
 
-  async post<T>(endpoint: string, data: any): Promise<T> {
-    debugger
+  async post<T>(endpoint: string, data: any): Promise<T> { 
     const observable = this.http.post<T>(`${this.baseUrl}${endpoint}`, data);
     return await firstValueFrom(observable.pipe(catchError(this.handleError)));
   }

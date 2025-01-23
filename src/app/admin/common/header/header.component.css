@@ -1,6 +1,6 @@
 a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
   }
   .site-header { 
     border-bottom: 1px solid #ccc;
@@ -12,7 +12,7 @@ a {
   
   .site-identity h1 {
     font-size: 1.5em;
-    margin: .3em 0;
+    margin: .7em 0;
     display: inline-block;
     color: #fffefe;
   }
@@ -20,11 +20,16 @@ a {
   
   .site-navigation ul, 
   .site-navigation li {
-    margin: 0; 
+    margin: 0px 9px;
     padding: 0;
   }
   
   .site-navigation li {
     display: inline-block;
     margin: 1.4em 1em 1em 1em;
+
+    &:hover{
+      background-color: #617f94;
+      color: #ffffff;
+    }
   }

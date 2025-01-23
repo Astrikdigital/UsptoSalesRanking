@@ -27,15 +27,18 @@ export const routes: Routes = [
                 path: 'agent-sales',
                 loadComponent: () => import('./admin/components/agent-sales/agent-sales.component').then(m => m.AgentSalesComponent),   
             },      
-            
             {
-                path: 'sale-closing',
+                path: 'closing',
                 loadComponent: () => import('./admin/components/sale-closing/sale-closing.component').then(m => m.SaleClosingComponent),   
             },
 
             {
-                path: 'Team',
+                path: 'teams',
                 loadComponent: () => import('./admin/components/team/team.component').then(m => m.TeamComponent),   
+            },
+            {
+                path: 'team-structure',
+                loadComponent: () => import('./admin/components/team-structure/team-structure.component').then(m => m.TeamStructureComponent),   
             },
         ]
     }

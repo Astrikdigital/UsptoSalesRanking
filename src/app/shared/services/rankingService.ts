@@ -45,6 +45,11 @@ export class RankingService {
     this.hubConnection.on('InsertAgentSales', callback);
   }
 
+  onTeamStructure(callback: (data: any) => void) {
+    console.log("Upate Team Structure");
+    this.hubConnection.on('AddTeamStructure', callback);
+  }
+
   onRefundSale(callback: (data: any) => void) {
     console.log("Refund Sale Update");
     this.hubConnection.on('RefundAgentSales', callback);
