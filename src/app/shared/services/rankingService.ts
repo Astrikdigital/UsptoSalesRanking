@@ -60,4 +60,9 @@ export class RankingService {
 
     this.hubConnection.on('TopTeamsRankUpdate', callback);
   }
+
+  onPageRefresh(callback: (data: any) => void) {
+    console.log("On Page Refresh");
+    this.hubConnection.on('OnPageReload', callback);
+  }
 }

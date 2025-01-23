@@ -16,7 +16,14 @@ import confetti from 'canvas-confetti';
   styleUrl: './sales-summary.component.css'
 })
 export class SalesSummaryComponent {
- 
+  
+  images: string[] = [
+    'bg-0',
+    'bg-1',
+    'bg-2',
+    'bg-3',
+    'bg-4'
+  ];
   teamsData: any = [];
   agentOfDay: any;
   currentDate: any = new Date();
@@ -33,17 +40,42 @@ export class SalesSummaryComponent {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }
-
+  currentImage: string = '';
+  private intervalId: any;
   ngOnDestroy(){
     const element = document.getElementById('bodyid');
     if (element) {
       element.classList.remove('bg-body');
     }
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
   ngOnInit() {
-    const element = document.getElementById('bodyid');
+    var element:any = document.getElementById('bodyid');
+    let index = 0;
+    this.currentImage = this.images[index];
+
+    this.intervalId = setInterval(() => {
+      debugger
+      if(index == 0){
+        element.classList.remove('bg-0');
+        element.classList.remove('bg-4');
+      }
+      index = (index + 1) % this.images.length;
+      element.classList.remove(this.images[index])
+      element.classList.add(this.images[index+1])
+      if(index == 3){
+        index = 0;
+      }
+      this.lazyLoadImage(index);
+    }, 20000);
+
+
+   
     if (element) {
       element.classList.add('bg-body');
+      element.classList.add('bg-0');
     }
     this.rankingService.startConnection();
     this.getAgentoftheDay();
@@ -59,6 +91,10 @@ export class SalesSummaryComponent {
       this.getTopTeams();
       this.getAgentoftheDay();
       this.OpenModal(data, 0);
+    });
+
+    this.rankingService.onPageRefresh((data) => {
+      window.location.reload
     });
 
     this.rankingService.onTeamStructure((data) => {
@@ -78,6 +114,16 @@ export class SalesSummaryComponent {
     this.rankingService.onTeamRankingUpdate((data) => {
       this.teamsData = data;
     });
+  }
+
+  lazyLoadImage(index: number) {
+    const img = new Image();
+    img.src = this.images[index];
+
+    // Update background only after the image has loaded
+    img.onload = () => {
+      this.currentImage = this.images[index];
+    };
   }
 
 

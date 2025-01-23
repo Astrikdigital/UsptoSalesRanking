@@ -28,7 +28,6 @@ export class TeamStructureComponent {
     let res: any = await this.httpService.getTeamStructure();
     this.data = res
     console.log(this.data);
-
   }
 
   addTeamAgent() {
@@ -57,7 +56,6 @@ export class TeamStructureComponent {
         this.getTeamStructure();
       }
     })
-
   }
 
 
