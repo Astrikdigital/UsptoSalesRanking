@@ -144,6 +144,8 @@ export class SalesSummaryComponent {
   async getAgentoftheDay() {
     let res: any = await this.httpService.getAgentoftheDay();
     this.agentOfDay = res[0];
+    console.log(this.agentOfDay,'Agent of the day');
+    
   }
 
   OpenModal(data: any, isRefund: number) { 

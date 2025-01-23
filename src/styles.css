@@ -216,9 +216,9 @@ body.bg-body {
 .agentsale {
     max-width: var(--mat-dialog-container-max-width, 860px) !important; 
 }
-table {
+/* table {
     background-color: #00000063;
-}
+} */
 .table tr td{
     background-color: transparent !important;
 }
