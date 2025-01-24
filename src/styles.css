@@ -12,15 +12,30 @@
     overflow-y: auto;
 }
 .main-content {
-    margin: 95px 167px;
+    margin: 50px 120px 95px 120px;
     height: 100%;
-    background: black;
+    /* background: black; */
     justify-content: center;
+    border: 0;
+    background-color: transparent;
+}
+.carousel-item {
+    border: 0;
+    background-color: transparent;
+}
+.carousel-inner::after {
+    display: none !important;
+}
+.carousel.slide  {
+    height: 100%;
 }
 .modal-content{
     padding: 10px 10px;
     height: 100%;
     justify-content: center;
+}
+.MainArea {
+    height: 100%;
 }
 .top-teams-container {
     height: 700px;
@@ -29,44 +44,111 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-.bg-body{
+.bg-0{
+    background-image: url(./assets/images/bgImages/bg-0.jpg);
+}
+.bg-1{
     background-image: url(./assets/images/bgImages/bg-1.jpg);
+}
+.bg-2{
+    background-image: url(./assets/images/bgImages/bg-2.jpg);
+}
+.bg-3{
+    background-image: url(./assets/images/bgImages/bg-3.jpg);
+}
+.bg-4{
+    background-image: url(./assets/images/bgImages/bg-4.jpg);
+}
+
+body.bg-body {
+    background-color: #000 !important;
+}
+
+.bg-body{
+    /* background-image: url(./assets/images/bgImages/bg-5.jpg); */
     background-position: top;
+    background-color: #000;
     background-repeat: no-repeat;
-    background-size: 100% 100%; 
+    /* background-size: 100% 100%;  */
     margin: 0;
     padding: 0;
+    background-size: cover;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
+/* .bg-body:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: #000;
+} */
+
 
 .card-box{
-    height: 548px !important;
-    width: 349px !important;
+    /* height: 548px !important; */
+    /* width: 349px !important; */
+    width: 24% !important;
+    padding: 0;
+    height: 100%;
+    border-bottom: 0 !important;
     border: 1px solid rgba(255, 238, 4, 0.767) !important;
+    background-color: #00000073;
+}
+    
+
+.card-box h4 {
+    font-size: 50px;
+}
+.card-box h5 {
+    font-size: 45px;
+    padding: 10px;
 }
 
-
 .image{
-    height: 397px !important;
-    border: 1px solid black !important; 
+    height: 550px !important;
+    /* border: 1px solid black !important;  */
+    border: 0 !important;
     background-position: top !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-color: transparent !important; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image img {
+    /* width: 100%;
+    height: 100%; */
+    max-width: 380px;
+    height: auto;
+}
+.image .smBadge  {
+    position: absolute;
+    left: -64px;
+    top: -60px;
+    width: 100px;
+}
+.image .smBadge img {
+    max-width: 200px;
 }
 
 .refund-image{
-    height: 338px !important;
+    height: 300px !important;
     border: 1px solid black !important;
     background-image: url(./assets/images/bgImages/refund-2.gif) !important;
-    background-position: top !important;
+    background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-color: transparent !important;
 }
 .details {
-    height: 56px !important;
-    width: 173px !important;
+    height: 85px !important;
+    width: 50% !important;
     border: 1px solid rgba(255, 238, 4, 0.77) !important;
     display: flex !important
 ;
@@ -78,22 +160,80 @@
     background-color: black !important;
 }
 .top-headings {
-    padding: 37px 0 !important;
+    padding: 45px 0 20px 0 !important;
 }
 .top-headings h2 {
-    font-size: 45px !important;
+    font-size: 100px !important;
     color: goldenrod !important;
+    font-weight: 700;;
 }
+.top-headings p {
+    font-size: 50px;
+    margin: 0;
+}
+
+.mat-mdc-dialog-content {
+    max-height: 74vh !important;
+}
+.modal-content.bg-black {
+    height: 100%;
+}
+.modal-content.bg-black {
+    height: 100%;
+}
+.modal-content.bg-black .card-box .image {
+    height: 445px !important;
+}
+.modal-content.bg-black .card-box .refund-image {
+    height: 410px !important;
+}
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+    background-color: #000000a6;
+}
+/* 
+.cdk-overlay-pane.insert-refund.mat-mdc-dialog-panel {
+    height: 700px !important;
+} */
 
 .insert-refund .mat-mdc-dialog-content.mdc-dialog__content,
 .insert-refund  .mat-mdc-dialog-surface.mdc-dialog__surface {
     background-color: rgb(39, 39, 39) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.insert-refund .mat-mdc-dialog-content.mdc-dialog__content h4, .insert-refund .mat-mdc-dialog-surface.mdc-dialog__surface h4 {
+    font-size: 35px;
+}
+.insert-refund .mat-mdc-dialog-content.mdc-dialog__content h5, .insert-refund .mat-mdc-dialog-surface.mdc-dialog__surface h5 {
+    font-size: 35px;
+}
+.modal-content.bg-black .card-box {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 .agentsale {
     max-width: var(--mat-dialog-container-max-width, 860px) !important; 
 }
-.table   tr td{
+/* table {
+    background-color: #00000063;
+} */
+.table tr td{
     background-color: transparent !important;
+}
+table.table.table-bordered[_ngcontent-ng-c662830049] tr[_ngcontent-ng-c662830049] th[_ngcontent-ng-c662830049] {
+    font-size: 30px !important;
+}
+table.table.table-bordered[_ngcontent-ng-c662830049] tr[_ngcontent-ng-c662830049] td[_ngcontent-ng-c662830049], table.table.table-bordered[_ngcontent-ng-c662830049] tr[_ngcontent-ng-c662830049] {
+    font-size: 30px !important;
+}
+.table tr td:nth-child(2) {
+    padding-left: 30px;
+}
+.table tr td {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .refundSale{
     background-color: white
@@ -119,10 +259,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(82, 82, 82); 
   } 
-  .image img {
-    width: 100%;
-    height: 100%;
-}
+  
 
 .btn-add {
     color: #fff;
@@ -134,3 +271,43 @@
     }
 }
  
+.content {
+    height: 100%;
+}
+
+.Inner_content_sec {
+    height: 100%;
+}
+
+canvas {
+    z-index: 50000 !important;
+}
+
+@media (max-width: 1920px) {
+    .image {
+        height: 380px !important;
+    }
+    .card-box{
+        width: 28%;
+    }
+    .details {
+        height: 56px !important;
+    }
+    .image img {
+        max-width: 350px;
+    }
+    .top-headings h2 {
+        font-size: 60px !important;
+    }
+}
+
+@media (max-width: 1910px) {
+    .bg-body{
+        overflow: auto;
+        height: 100%;
+    }
+    .card-box h5 {
+        font-size: 25px;
+    }
+    
+}

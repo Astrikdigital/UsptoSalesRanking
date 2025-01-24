@@ -1,8 +1,8 @@
-<div class="content">
+<div class="Inner_content_sec">
 
   <!-- <button (click)="celebrate()">Celebrate!</button> -->
-
-  <ngb-carousel [interval]="2500" [showNavigationArrows]="false" [showNavigationIndicators]="false" [wrap]="true">
+<div class="MainArea">
+  <ngb-carousel [pauseOnHover]="false" [pauseOnFocus]="false" [interval]="10000" [showNavigationArrows]="false" [showNavigationIndicators]="false" [wrap]="true">
 
     <ng-template ngbSlide>
       <div class="top-headings">
@@ -26,9 +26,9 @@
                   <tr>
                     <th style="width: 5%;">Rank</th>
                     <th>Name</th>
-                    <th style="width: 10%;">Team Name</th>
-                    <th style="width: 10%;">Bench</th>
-                    <th style="width: 10%;">Achieved</th>
+                    <th style="width: 15%;" class="text-center">Team</th>
+                    <th style="width: 15%;" class="text-center">Bench</th>
+                    <th style="width: 15%;" class="text-center">Achieved</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -76,9 +76,9 @@
                   <tr>
                     <th style="width: 5%;">Rank</th>
                     <th>Name</th>
-                    <th style="width: 10%;">Team Name</th>
-                    <th style="width: 10%;">Bench</th>
-                    <th style="width: 10%;">Achieved</th>
+                    <th style="width: 15%;" class="text-center">Team</th>
+                    <th style="width: 15%;" class="text-center">Bench</th>
+                    <th style="width: 15%;" class="text-center">Achieved</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -122,7 +122,12 @@
           <ng-container *ngFor="let item of teamsData let i=index">
             <div class="card-box">
               <div class="image">
+                <span class="smBadge">
+                  <img
+                  [src]="'../../../../assets/images/bgImages/' + item?.Rank + '.png'" alt="">
+                </span>
                 <img src="../../../../assets/images/bgImages/{{item.TeamLogo}}" alt="" />
+                <p></p>
               </div>
               <div class="row" style="background-color: rgb(174, 135, 22);">
                 <div class="col-md-12 text-center text-white">
@@ -160,7 +165,6 @@
         </div>
       </div>
     </ng-template>
-
     <ng-template *ngIf="agentOfDay" ngbSlide>
       <div class="top-headings">
         <div class="row">
@@ -179,6 +183,10 @@
           <ng-container>
             <div class="card-box">
               <div class="image">
+                <span class="smBadge">
+                  <img
+                  [src]="'../../../../assets/images/bgImages/' + agentOfDay?.Rank + '.png'" alt="">
+                </span>
                 <img
                   src="../../../../assets/images/bgImages/{{ agentOfDay.TeamLogo != null ? agentOfDay.TeamLogo : 'Falcons.png'}}"
                   alt="">
@@ -219,6 +227,7 @@
         </div>
       </div>
     </ng-template>
-
   </ngb-carousel>
+</div>
+
 </div>

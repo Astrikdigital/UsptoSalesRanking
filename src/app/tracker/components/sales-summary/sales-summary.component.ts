@@ -16,7 +16,14 @@ import confetti from 'canvas-confetti';
   styleUrl: './sales-summary.component.css'
 })
 export class SalesSummaryComponent {
- 
+  
+  images: string[] = [
+    'bg-0',
+    'bg-1',
+    'bg-2',
+    'bg-3',
+    'bg-4'
+  ];
   teamsData: any = [];
   agentOfDay: any;
   currentDate: any = new Date();
@@ -33,17 +40,42 @@ export class SalesSummaryComponent {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }
-
+  currentImage: string = '';
+  private intervalId: any;
   ngOnDestroy(){
     const element = document.getElementById('bodyid');
     if (element) {
       element.classList.remove('bg-body');
     }
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
   ngOnInit() {
-    const element = document.getElementById('bodyid');
+    var element:any = document.getElementById('bodyid');
+    let index = 0;
+    this.currentImage = this.images[index];
+
+    this.intervalId = setInterval(() => {
+      debugger
+      if(index == 0){
+        element.classList.remove('bg-0');
+        element.classList.remove('bg-4');
+      }
+      index = (index + 1) % this.images.length;
+      element.classList.remove(this.images[index])
+      element.classList.add(this.images[index+1])
+      if(index == 3){
+        index = 0;
+      }
+      this.lazyLoadImage(index);
+    }, 20000);
+
+
+   
     if (element) {
       element.classList.add('bg-body');
+      element.classList.add('bg-0');
     }
     this.rankingService.startConnection();
     this.getAgentoftheDay();
@@ -59,6 +91,10 @@ export class SalesSummaryComponent {
       this.getTopTeams();
       this.getAgentoftheDay();
       this.OpenModal(data, 0);
+    });
+
+    this.rankingService.onPageRefresh((data) => {
+      window.location.reload();
     });
 
     this.rankingService.onTeamStructure((data) => {
@@ -80,6 +116,16 @@ export class SalesSummaryComponent {
     });
   }
 
+  lazyLoadImage(index: number) {
+    const img = new Image();
+    img.src = this.images[index];
+
+    // Update background only after the image has loaded
+    img.onload = () => {
+      this.currentImage = this.images[index];
+    };
+  }
+
 
 
   async getTopTeams() {
@@ -98,6 +144,8 @@ export class SalesSummaryComponent {
   async getAgentoftheDay() {
     let res: any = await this.httpService.getAgentoftheDay();
     this.agentOfDay = res[0];
+    console.log(this.agentOfDay,'Agent of the day');
+    
   }
 
   OpenModal(data: any, isRefund: number) { 
@@ -105,8 +153,8 @@ export class SalesSummaryComponent {
     this.dialog.open(AchievementModalComponent, {
       data: data,
       panelClass: 'insert-refund',
-      height: '600px',
-      width: '1000px',
+      //height: '700px',
+      //width: '1000px',
     })
     setTimeout(() => {
       this.dialog.closeAll();
@@ -114,7 +162,7 @@ export class SalesSummaryComponent {
   }
 
   celebrate() {
-    const duration = 20000; // in milliseconds
+    const duration = 18000; // in milliseconds
     var scalar = 2;
     var pineapple = confetti.shapeFromText({ text: '🎈', scalar });
 
