@@ -6,7 +6,7 @@
         </h4>
       </div>
       <div class="col-md-4 text-end">
-        <button class="btn btn-add-sale" (click)="addSale()"> 
+        <button class="btn btn-add" (click)="addUpdateAgent()"> 
           + Add Agent
         </button>
       </div>
@@ -17,29 +17,22 @@
                 <tr>
                   <th style="width: 2%;" scope="col">S#</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Team ID</th>
-                  <th scope="col">Role ID</th>
-                  <th scope="col">Team Name</th>
-                  <!-- <th style="width: 8%;" scope="col">Actions</th> -->
-                  <!-- <th scope="col">Status</th> -->
+                  <th scope="col">Team</th>
+                  <th scope="col">Role </th>
+                  <th style="width: 8%;" scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="{{item.statusId == 2 ? 'refund': ''}}" *ngFor="let item of data let i = index">
                   <th scope="row">{{i+1}}</th>
                   <td>{{item?.fullName}}</td>
-                  <td>{{item?.teamId}}</td>
-                  <td>{{item?.roleId}}</td>
                   <td>{{item?.teamName}}</td>
-                  <!-- <td class="text-center">
-                    <button class="btn btn-refund" (click)="refundSale(item)" *ngIf="item.statusId == 1">
-                        Refund 
+                  <td>{{item?.rolName}}</td>
+                  <td class="text-center">
+                    <button class="btn btn-primary" (click)="addUpdateAgent(item)">
+                        Edit 
                     </button>
-                    <span *ngIf="item.statusId == 2">
-                      Refunded
-                    </span>
-                  </td> -->
-                  <!-- <td>{{item?.statusId}}</td> -->
+                  </td>
                 </tr>
               </tbody>
             </table>

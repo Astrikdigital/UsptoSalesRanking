@@ -1,0 +1,52 @@
+<!-- <h2 mat-dialog-title>{{selectedData.position}}</h2> -->
+<h2 mat-dialog-title>Add Sale</h2>
+<mat-dialog-content>
+  <form>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="Agent">Agent</label>
+          <input type="text" name="" id="" class="form-control" [(ngModel)]="model.Name" [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div class="col-md-6">
+          <label for="Agent">Team</label>
+          <select name="month"  class="form-control" [(ngModel)]="model.TeamId" [ngModelOptions]="{standalone: true}">
+            <option value="">Select Team</option>
+            <option *ngFor="let item of teams" [ngValue]="item.Id">{{item.Name}}-({{item?.Cordinator}})</option>
+          </select>
+        </div>
+      
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <label for="month">Role</label>
+            <select name="month"  class="form-control" [(ngModel)]="model.RoleId" [ngModelOptions]="{standalone: true}">
+            <option value="">Select Role</option>
+            <option [ngValue]="1">Sale - Upsell</option>
+            <option [ngValue]="2">Sale - Front</option>
+            </select>
+          </div>
+         
+          <div class="col-md-6">
+            <div class="form-check form-switch">
+                <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="model.IsCordinator" [ngModelOptions]="{standalone: true}">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Is Cordinator</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="btn btn-danger m-1" (click)="close()">Cancle</button>
+  <button class="btn btn-primary m-1" (click)="saveChanges()">
+    <span>
+     Save
+   </span>
+  </button>
+
+</mat-dialog-actions>
+   
+  
