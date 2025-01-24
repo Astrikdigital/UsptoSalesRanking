@@ -56,9 +56,17 @@ export class HttpApiService {
     async updateteamStructure(body: any): Promise<any> {
         return await this.httpService.post<any>('Agent/UpdateTeamStructure', body)
     }
-
+    async InsertUpdateTeam(body: any): Promise<any> {
+        return await this.httpService.post<any>('Agent/InsertUpdateTeam', body)
+    }
     async deleteTeamStructure(body: any): Promise<any> {
         return await this.httpService.post<any>('Agent/DeleteTeamStructure', body)
+    }
+    async deleteTeam(body: any): Promise<any> {
+        return await this.httpService.post<any>('Agent/DeleteTeam', body)
+    }
+    async deleteAgent(body: any): Promise<any> {
+        return await this.httpService.post<any>('Agent/DeleteAgent', body)
     }
     async addUpdateAgent(body: any): Promise<any> {
         return await this.httpService.post<any>('Agent/InsertUpdateAgent', body)

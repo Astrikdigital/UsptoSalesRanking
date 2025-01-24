@@ -14,25 +14,17 @@ export class ConfirmationModalComponent {
 
   public Id :any;
 constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<RefundSaleModalComponent>, private httpService: HttpApiService,) {
-  this.Id = data
-    console.log(this.Id, "Id");
+  this.Id = data;
   }
 
 
 
   close() {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
+  }
+  Confirm() {
+    this.dialogRef.close(this.Id);
   }
 
-  async removeRow() {
-    let refundModel = {
-      id: this.Id,
-    } 
-    debugger
-    let res: any = await this.httpService.deleteTeamStructure(refundModel);
-    if (res) { 
-      this.dialogRef.close({IsSuccess:true});
-    }
-    return;
-  }
+  
 }

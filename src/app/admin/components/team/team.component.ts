@@ -5,6 +5,8 @@ import { AddSaleModalComponent } from '../../modals/add-sale-modal/add-sale-moda
 import { RefundSaleModalComponent } from '../../modals/refund-sale-modal/refund-sale-modal.component';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { ConfirmationModalComponent } from '../../modals/confirmation-modal/confirmation-modal.component';
+import { AddTeamModalComponent } from '../../modals/add-team-modal/add-team-modal.component';
 
 @Component({
   selector: 'app-team',
@@ -25,36 +27,40 @@ export class TeamComponent {
      
        async getTeam() {
          let res: any = await this.httpService.getTeam();
-         this.data = res
-         console.log(this.data);
+         this.data = res 
        }
          
-       addSale() {
-         let modal = this.dialog.open(AddSaleModalComponent, {
-           panelClass:'agentsale',
-           width:'860px',
-           height:'300px'
-         })
-     
-         modal.afterClosed().subscribe(async (result) => {
-           debugger;
-           if (result.IsSuccess) {
-             this.getTeam();
-           }
-         })
-       }
-     
-       refundSale(row:any){
-         let modal =  this.dialog.open(RefundSaleModalComponent, {
-           data:row,
-           width:'860px',
-           height:'200px'
-         })
-     
-         modal.afterClosed().subscribe(async (result) => {
-           if (result.IsSuccess) {
-             this.getTeam();
-           }
-         });
-       }
+    
+      
+       deleteTeamAgent(id: any) {
+           let modal = this.dialog.open(ConfirmationModalComponent, {
+             data: id,
+             width: '860px',
+             height: '200px'
+           });
+           modal.afterClosed().subscribe(async (result) => {
+             if (result) this.removeRow(result);
+           });
+         }
+         async removeRow(Id:any) {
+          let refundModel = {
+            id: Id,
+          }  
+          let res: any = await this.httpService.deleteTeam(refundModel);
+          if (res)  this.getTeam();
+          return;
+        }
+          editTeam(rowData?: any) {
+            let modal = this.dialog.open(AddTeamModalComponent, {
+              data: rowData,
+              panelClass: 'agentsale',
+              width: '860px',
+              height: '250px'
+            })
+            modal.afterClosed().subscribe(async (result) => {
+              if (result?.IsSuccess) {
+                this.getTeam();
+              }
+            })
+          }
 }

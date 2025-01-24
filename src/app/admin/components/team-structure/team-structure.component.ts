@@ -58,7 +58,15 @@ export class TeamStructureComponent {
     })
   }
 
-
+  async removeRow(Id:any) {
+    let refundModel = {
+      id: Id,
+    } 
+    debugger
+    let res: any = await this.httpService.deleteTeamStructure(refundModel);
+    if (res)    this.getTeamStructure(); 
+    return;
+  }
   deleteTeamAgent(id: any) {
     let modal = this.dialog.open(ConfirmationModalComponent, {
       data: id,
@@ -66,9 +74,7 @@ export class TeamStructureComponent {
       height: '200px'
     });
     modal.afterClosed().subscribe(async (result) => {
-      if (result.IsSuccess) {
-        this.getTeamStructure();
-      }
+      if (result) this.removeRow(result)
     });
   }
 }

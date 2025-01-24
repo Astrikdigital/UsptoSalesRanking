@@ -6,6 +6,7 @@ import { AddSaleModalComponent } from '../../modals/add-sale-modal/add-sale-moda
 import { RefundSaleModalComponent } from '../../modals/refund-sale-modal/refund-sale-modal.component';
 import { CommonModule, NgFor } from '@angular/common';
 import { AddUpdateAgentModalComponent } from '../../modals/add-update-agent-modal/add-update-agent-modal.component';
+import { ConfirmationModalComponent } from '../../modals/confirmation-modal/confirmation-modal.component';
 
 
 @Component({
@@ -42,7 +43,25 @@ export class AgentComponent {
       }
     })
   }
-
+      deleteAgent(id: any) {
+           let modal = this.dialog.open(ConfirmationModalComponent, {
+             data: id,
+             width: '860px',
+             height: '200px'
+           });
+           modal.afterClosed().subscribe(async (result) => {
+            debugger
+             if (result) this.removeRow(result);
+           });
+         }
+         async removeRow(Id:any) {
+          let refundModel = {
+            id: Id,
+          }  
+          let res: any = await this.httpService.deleteAgent(refundModel);
+          if (res)   this.getAgent();
+          return;
+        }
   // refundSale(row:any){
   //   let modal =  this.dialog.open(RefundSaleModalComponent, {
   //     data:row,

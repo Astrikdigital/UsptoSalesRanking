@@ -311,3 +311,12 @@ canvas {
     }
     
 }
+.btn-add {
+    color: #fff !important;
+    background-color: #a36b06d6 !important;
+    border-color: #a36b06d6 !important;
+
+    &:hover{
+        background-color: #8c5e07d6 !important;
+    }
+}

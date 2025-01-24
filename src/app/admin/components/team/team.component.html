@@ -2,12 +2,12 @@
     <div class="row p-3">
       <div class="col-md-8">
         <h4>
-          Agents Sales
+          Teams
         </h4>
       </div>
       <div class="col-md-4 text-end">
-        <button class="btn btn-add-sale" (click)="addSale()"> 
-          + Add Agent Sale
+        <button class="btn btn-add"  (click)="editTeam()"> 
+          + Add Team
         </button>
       </div>
     </div>
@@ -15,18 +15,26 @@
           <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th style="width: 2%;" scope="col">S#</th>
-                  <th scope="col">ID</th>
+                  <th style="width: 2%;" scope="col">S#</th> 
                   <th scope="col">Name</th>
                   <th scope="col">Logo</th>
+                  <th style="width: 8%;" scope="col">Actions</th> 
                 </tr>
               </thead>
               <tbody>
                 <tr class="{{item.statusId == 2 ? 'refund': ''}}" *ngFor="let item of data let i = index">
-                  <th scope="row">{{i+1}}</th>
-                  <td>{{item?.id}}</td>
-                  <td>{{item?.name}}</td>
-                  <td>{{item?.logo}}</td>
+                  <th scope="row">{{i+1}}</th> 
+                  <td>{{item?.Name}}</td>
+                  <td>{{item?.Logo}}</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="editTeam(item)" >
+                      Edit
+                    </button>
+
+                    <button class="btn btn-danger mx-1" (click)="deleteTeamAgent(item.Id)" >
+                      Delete 
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>

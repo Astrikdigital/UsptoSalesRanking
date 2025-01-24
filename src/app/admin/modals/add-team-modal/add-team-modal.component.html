@@ -1,0 +1,30 @@
+<!-- <h2 mat-dialog-title>{{selectedData.position}}</h2> -->
+<h2 mat-dialog-title style="font-weight: 600;">Team</h2>
+<mat-dialog-content>
+    <form>
+        <div class="form-group">
+            <div class="row">  
+                    <div class="col-md-6">
+                        <label for="Agent">Name</label>
+                        <input type="text" name="" id="" class="form-control" [(ngModel)]="teamAgentModel.name"
+                            [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Agent">Logo</label>
+                        <input type="text" name="" id="" class="form-control" [(ngModel)]="teamAgentModel.logo"
+                            [ngModelOptions]="{standalone: true}">
+                    </div> 
+            </div>
+        </div>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-danger m-1" (click)="close()">Cancle</button>
+    <button class="btn btn-primary m-1" (click)="InsertUpdateTeam()">
+        <span>
+            Save
+        </span>
+    </button>
+
+</mat-dialog-actions>
