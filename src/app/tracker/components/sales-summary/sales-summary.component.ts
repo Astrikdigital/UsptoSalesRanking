@@ -94,7 +94,7 @@ export class SalesSummaryComponent {
     });
 
     this.rankingService.onPageRefresh((data) => {
-      window.location.reload
+      window.location.reload();
     });
 
     this.rankingService.onTeamStructure((data) => {
