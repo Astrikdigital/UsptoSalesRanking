@@ -2,7 +2,7 @@
 
   <!-- <button (click)="celebrate()">Celebrate!</button> -->
 <div class="MainArea">
-  <ngb-carousel [pauseOnHover]="false" [pauseOnFocus]="false" [interval]="10000" [showNavigationArrows]="false" [showNavigationIndicators]="false" [wrap]="true">
+    <ngb-carousel [pauseOnHover]="false" [pauseOnFocus]="false" [interval]="10000" [showNavigationArrows]="false" [showNavigationIndicators]="false" [wrap]="true">
 
     <ng-template ngbSlide>
       <div class="top-headings">
@@ -227,7 +227,67 @@
         </div>
       </div>
     </ng-template>
-  </ngb-carousel>
+    <ng-template ngbSlide>
+      <div class="top-headings">
+        <div class="row">
+          <div class="col-md-12 text-center text-white">
+            <h2 class="text-center">
+              Total Bench 
+            </h2>
+            <p>
+              {{currentDate | date : "EEEE, MMMM dd, yyyy"}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="d-flex justify-content-evenly row p-3">
+          <ng-container>
+            <div class="card-box total">
+         
+              <div class="row">
+                <div class="details-total text-center">
+                  <h5 class="text-danger">
+                   Total Bench
+                  </h5>
+                </div>
+                <div class="details-total text-center">
+                  <h5 class="text-danger">
+                    {{totalBench.TotalBench | number}}
+                  </h5>
+                </div>
+                <div class="details-total text-center">
+                  <h5 class="text-warning">
+                   Total Achieved
+                  </h5>
+                </div>
+                <div class="details-total text-center">
+                  <h5 class="text-warning">
+                    {{totalBench.TotalAchive | number}}
+                  </h5>
+                </div> 
+                  <div class="details-total-12 text-center">
+                    <h5 class="text-danger">
+                  Total Pending
+                    </h5>
+                  </div>
+                  <div class="details-total-12 text-center">
+                    <h5 class="text-danger">
+                      {{totalBench.TotalPending | number}}
+                    </h5> 
+                </div>
+              </div>
+            </div>
+          </ng-container>
+  
+  
+        </div>
+      </div> 
+    </ng-template>
+  </ngb-carousel>   
+ 
+  
+  
 </div>
 
 </div>

@@ -11,12 +11,12 @@ import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-sales-summary',
-  imports: [CommonModule, NgbCarouselModule,NgIf,NgFor],
+  imports: [CommonModule, NgbCarouselModule],
   templateUrl: './sales-summary.component.html',
   styleUrl: './sales-summary.component.css'
 })
 export class SalesSummaryComponent {
-  
+  totalBench:any = {};
   images: string[] = [
     'bg-0',
     'bg-1',
@@ -81,7 +81,7 @@ export class SalesSummaryComponent {
     this.getAgentoftheDay();
     this.getTopTeams();
     this.getPerformers();
-
+    this.getTotalBench();
     this.rankingService.onAddSaleAgent((data) => {
       this.upSells = data.list.upSell;
       this.frontSells = data.list.frontSell;
@@ -90,6 +90,7 @@ export class SalesSummaryComponent {
       }, 2000);
       this.getTopTeams();
       this.getAgentoftheDay();
+      this.getTotalBench();
       this.OpenModal(data, 0);
     });
 
@@ -101,6 +102,7 @@ export class SalesSummaryComponent {
       this.getTopTeams();
       this.getAgentoftheDay();
       this.getPerformers();
+      this.getTotalBench();
     });
 
     this.rankingService.onRefundSale((data) => {
@@ -108,6 +110,7 @@ export class SalesSummaryComponent {
       this.frontSells = data.list.frontSell;
       this.getTopTeams();
       this.getAgentoftheDay();
+      this.getTotalBench();
       this.OpenModal(data, 1);
     });
 
@@ -138,6 +141,11 @@ export class SalesSummaryComponent {
     let res: any = await this.httpService.getPerformers();
     this.upSells = res.upSell;
     this.frontSells = res.frontSell;
+    // this.rankings.sort((a:any, b:any) => a.Rank - b.Rank)
+  }
+  async getTotalBench() {
+    let res: any = await this.httpService.getTotalBench();
+    this.totalBench = res; 
     // this.rankings.sort((a:any, b:any) => a.Rank - b.Rank)
   }
 
