@@ -17,6 +17,10 @@ export class HttpApiService {
     async getPerformers(){
         return await this.httpService.getAsync<any>('Agent/GetSalesSummary');
     }
+    async getTotalBench(){
+        return await this.httpService.getAsync<any>('Agent/GetTotalBench');
+    }
+    
     async getSaleAgent(){
         return await this.httpService.getAsync<any>('Agent/GetAgentSales');
     }
