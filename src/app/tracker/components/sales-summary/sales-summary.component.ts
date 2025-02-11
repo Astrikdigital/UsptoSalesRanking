@@ -57,7 +57,6 @@ export class SalesSummaryComponent {
     this.currentImage = this.images[index];
 
     this.intervalId = setInterval(() => {
-      debugger
       if(index == 0){
         element.classList.remove('bg-0');
         element.classList.remove('bg-4');
@@ -85,6 +84,7 @@ export class SalesSummaryComponent {
     this.rankingService.onAddSaleAgent((data) => {
       this.upSells = data.list.upSell;
       this.frontSells = data.list.frontSell;
+      debugger
       setInterval(() => {
         this.celebrate();
       }, 2000);
@@ -143,9 +143,7 @@ export class SalesSummaryComponent {
 
   async getAgentoftheDay() {
     let res: any = await this.httpService.getAgentoftheDay();
-    this.agentOfDay = res[0];
-    console.log(this.agentOfDay,'Agent of the day');
-    
+    this.agentOfDay = res[0];    
   }
 
   OpenModal(data: any, isRefund: number) { 

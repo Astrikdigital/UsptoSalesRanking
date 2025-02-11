@@ -13,7 +13,7 @@
           <label for="Agent">Team</label>
           <select name="month"  class="form-control" [(ngModel)]="model.TeamId" [ngModelOptions]="{standalone: true}">
             <option value="">Select Team</option>
-            <option *ngFor="let item of teams" [ngValue]="item.Id">{{item.Name}}-({{item?.Cordinator}})</option>
+            <option *ngFor="let item of teams" [ngValue]="item.Id">{{item.Name}}</option>
           </select>
         </div>
       

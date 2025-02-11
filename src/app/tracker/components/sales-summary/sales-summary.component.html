@@ -29,6 +29,7 @@
                     <th style="width: 15%;" class="text-center">Team</th>
                     <th style="width: 15%;" class="text-center">Bench</th>
                     <th style="width: 15%;" class="text-center">Achieved</th>
+                    <!-- <th style="width: 15%;" class="text-center">RemainingPerday</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -45,7 +46,9 @@
                     <td class="text-center">
                       {{rank.Achive | number}}
                     </td>
-
+                    <!-- <td class="text-center">
+                      {{rank.RemainingPerday | number}}
+                    </td> -->
                   </tr>
                 </tbody>
               </table>
@@ -79,6 +82,7 @@
                     <th style="width: 15%;" class="text-center">Team</th>
                     <th style="width: 15%;" class="text-center">Bench</th>
                     <th style="width: 15%;" class="text-center">Achieved</th>
+                    <!-- <th style="width: 15%;" class="text-center">RemainingPerday</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -95,7 +99,9 @@
                     <td class="text-center">
                       {{rank.Achive | number}}
                     </td>
-
+                    <!-- <td class="text-center">
+                      {{rank.RemainingPerday | number}}
+                    </td> -->
                   </tr>
                 </tbody>
               </table>
@@ -157,6 +163,17 @@
                     {{item.TotalAchieve | number}}
                   </h5>
                 </div>
+                <div class="details text-center">
+                  <h5 style="font-size: 36px !important;" class="text-warning">
+                    RemainingPerday
+                  </h5>
+                </div>
+
+                <div class="details text-center">
+                  <h5  class="text-warning">
+                    {{item.TotalReamingTarget | number}}
+                  </h5>
+                </div>
               </div>
             </div>
           </ng-container>
@@ -199,7 +216,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="details text-center">
+                <!-- <div class="details text-center">
                   <h5 class="text-danger">
                     Bench
                   </h5>
@@ -208,13 +225,15 @@
                   <h5 class="text-danger">
                     {{agentOfDay.Bench | number}}
                   </h5>
-                </div>
+                </div> -->
                 <div class="details text-center">
                   <h5 class="text-warning">
-                    Achieved
+                    Amount
                   </h5>
                 </div>
                 <div class="details text-center">
+
+
                   <h5 class="text-warning">
                     {{agentOfDay.Achive | number}}
                   </h5>
