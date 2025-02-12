@@ -37,7 +37,6 @@ export class AgentComponent {
     })
 
     modal.afterClosed().subscribe(async (result) => {
-      debugger;
       if (result.IsSuccess) {
         this.getAgent();
       }
@@ -50,7 +49,6 @@ export class AgentComponent {
              height: '200px'
            });
            modal.afterClosed().subscribe(async (result) => {
-            debugger
              if (result) this.removeRow(result);
            });
          }

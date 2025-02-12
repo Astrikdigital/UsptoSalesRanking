@@ -90,7 +90,6 @@ export class EditTeamStructureModalComponent {
       async addTeamAgent(){ 
         console.log(this.teamAgentModel);
         let res: any = await this.httpService.updateteamStructure(this.teamAgentModel);
-        debugger
         if (res) {
           this.dialogRef.close({IsSuccess:true});
         }

@@ -38,7 +38,6 @@ export class SaleClosingComponent {
       })
   
       modal.afterClosed().subscribe(async (result) => {
-        debugger;
         if (result.IsSuccess) {
           this.saleclosing();
         }

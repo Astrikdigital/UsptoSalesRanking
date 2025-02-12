@@ -50,10 +50,12 @@ export class HttpService {
   //   return this.http.get<T>(`${this.baseUrl}/${endpoint}`); 
   // } 
 
-  async getAsync<T>(endpoint: string, queryParams?: any): Promise<T> { 
-    const observable = this.http.get<T>(`${this.baseUrl}${endpoint}`);
-    return await firstValueFrom(observable.pipe(catchError(this.handleError)));
-  }
+  async getAsync<T>(endpoint: string, queryParams?: any): Promise<T> {
+   const options = {  params: queryParams}; 
+   const observable = this.http.get<T>(`${this.baseUrl}${endpoint}`, options);
+   return await firstValueFrom(observable.pipe(catchError(this.handleError)));
+ }
+
 
 
   async post<T>(endpoint: string, data: any): Promise<T> { 

@@ -84,7 +84,6 @@ export class SalesSummaryComponent {
     this.rankingService.onAddSaleAgent((data) => {
       this.upSells = data.list.upSell;
       this.frontSells = data.list.frontSell;
-      debugger
       setInterval(() => {
         this.celebrate();
       }, 2000);
@@ -95,7 +94,7 @@ export class SalesSummaryComponent {
     });
 
     this.rankingService.onPageRefresh((data) => {
-      window.location.reload();
+      window.location.href = '/sales/sales-summary';
     });
 
     this.rankingService.onTeamStructure((data) => {
@@ -146,6 +145,7 @@ export class SalesSummaryComponent {
   async getTotalBench() {
     let res: any = await this.httpService.getTotalBench();
     this.totalBench = res; 
+    
     // this.rankings.sort((a:any, b:any) => a.Rank - b.Rank)
   }
 

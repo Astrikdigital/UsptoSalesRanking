@@ -22,7 +22,6 @@ export class AddUpdateAgentModalComponent {
     IsCordinator: 0
   };
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<AddUpdateAgentModalComponent>, private httpService: HttpApiService,) {
-    debugger
     if (data != null) {
       if (this.data.id)  this.model.Id = this.data.id; 
       this.model.Name = data.fullName
@@ -49,7 +48,6 @@ export class AddUpdateAgentModalComponent {
   async saveChanges() {
     
     let res: any = await this.httpService.addUpdateAgent(this.model);
-    debugger
     if (res) {
       this.dialogRef.close({ IsSuccess: true });
     }

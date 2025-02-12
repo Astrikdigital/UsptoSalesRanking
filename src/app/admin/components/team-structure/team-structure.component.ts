@@ -5,29 +5,42 @@ import { NgFor, CommonModule } from '@angular/common';
 import { AddTeamagentModalComponent } from '../../modals/add-teamagent-modal/add-teamagent-modal.component';
 import { EditTeamStructureModalComponent } from '../../modals/edit-team-structure-modal/edit-team-structure-modal.component';
 import { ConfirmationModalComponent } from '../../modals/confirmation-modal/confirmation-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-team-structure',
-  imports: [NgFor, CommonModule],
+  imports: [NgFor, CommonModule,FormsModule],
   templateUrl: './team-structure.component.html',
   styleUrl: './team-structure.component.css'
 })
 export class TeamStructureComponent {
 
-
+  model: any = {
+    searchText: '',
+    monthId: new Date().getMonth() + 1,
+    year: new Date().getFullYear(),
+    pageSize: 50,
+    pageNumber: 0
+  }
+  public monthList: any = []
   public data: any = []
 
   constructor(private httpService: HttpApiService, private dialog: MatDialog,) { }
 
   ngOnInit(): void {
+    this.getMonthList();
     this.getTeamStructure();
   }
 
 
   async getTeamStructure() {
-    let res: any = await this.httpService.getTeamStructure();
+    let res: any = await this.httpService.getTeamStructure(this.model);
     this.data = res
     console.log(this.data);
+  }
+  async getMonthList() {
+    let res: any = await this.httpService.getMonths();
+    this.monthList = res;
   }
 
   addTeamAgent() {
@@ -37,7 +50,6 @@ export class TeamStructureComponent {
       height: '500px'
     })
     modal.afterClosed().subscribe(async (result) => {
-      debugger
       if (result.IsSuccess) {
         this.getTeamStructure();
       }
@@ -62,7 +74,6 @@ export class TeamStructureComponent {
     let refundModel = {
       id: Id,
     } 
-    debugger
     let res: any = await this.httpService.deleteTeamStructure(refundModel);
     if (res)    this.getTeamStructure(); 
     return;
@@ -76,5 +87,8 @@ export class TeamStructureComponent {
     modal.afterClosed().subscribe(async (result) => {
       if (result) this.removeRow(result)
     });
+  }
+  search(event: any) {
+    console.log(event);
   }
 }

@@ -1,9 +1,30 @@
 <div class="row my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>
+        Team Structure
+      </h4>
+    </div>
+  </div>
     <div class="row p-3">
-      <div class="col-md-8">
-        <h4>
-          Team Structure
-        </h4>
+      <div class="col-md-2">
+        <label for="searchText"> <b>Name</b> </label>
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="model.searchText">
+      </div>
+      <div class="col-md-2">
+        <label for="month"> <b>Month</b> </label>
+       <select class="form-control" [(ngModel)]="model.monthId">
+        <option *ngFor="let item of monthList" [value]="item.Id">{{item.Title}}</option>
+      </select> 
+      </div> 
+      <div class="col-md-2">
+        <label for="year"> <b>Year</b> </label>
+        <input type="number" class="form-control" placeholder="Year" [(ngModel)]="model.year">
+      </div>
+      <div class="col-md-2 mt-4">
+       <button class="btn btn-primary" (click)="getTeamStructure()">
+        Search
+       </button>
       </div>
       <div class="col-md-4 text-end">
         <button class="btn btn-add" (click)="addTeamAgent()"> 

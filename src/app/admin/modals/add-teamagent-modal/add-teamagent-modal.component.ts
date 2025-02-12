@@ -81,7 +81,6 @@ export class AddTeamagentModalComponent {
     async addTeamAgent(){ 
       console.log(this.teamAgentModel);
       let res: any = await this.httpService.addTeamStructure(this.teamAgentModel);
-      debugger
       if (res) {
         this.dialogRef.close({IsSuccess:true});
       }

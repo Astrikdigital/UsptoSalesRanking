@@ -50,8 +50,8 @@ export class HttpApiService {
         return await this.httpService.getAsync<any>('Agent/GetClosing');
     }
     
-    async getTeamStructure(){
-        return await this.httpService.getAsync<any>('Agent/GetTeamStructure');
+    async getTeamStructure(model:any){
+        return await this.httpService.getAsync<any>('Agent/GetTeamStructure',model);
     }
 
     async addTeamStructure(body: any): Promise<any> {
@@ -74,5 +74,8 @@ export class HttpApiService {
     }
     async addUpdateAgent(body: any): Promise<any> {
         return await this.httpService.post<any>('Agent/InsertUpdateAgent', body)
+    }
+    async refereshScreen(): Promise<any> {
+        return await this.httpService.getAsync<any>('Agent/OnPageReload');
     }
 }
